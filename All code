@@ -12,6 +12,7 @@ def page_nb(i):
     urlpage="https://www.nexity.fr/annonces-immobilieres/location/logement/tout/strasbourg+67/moins-de-1000?page={}".format(i)
     return urlpage
 
+#####  recupereratat  de toutes les  page du site
 
 url = page_nb(2)
 page1 = get_page(url,'div','results-banner')[0]
@@ -19,6 +20,8 @@ nb_articles = int(re.findall('<strong>(.*?)</strong>',str(page1))[0])
 #cherche me 37
 chiffre = ceil(37/12)
 chiffre
+
+### création d'un data frame pour enregistrer les données récupérées
 
 list_pages=[]
 
@@ -31,7 +34,8 @@ for i in range(2,chiffre+1):
     url = page_nb(i)
     page_n = get_page(url,'div','ais-hits--item')
     list_pages.append(page_n)
-
+    
+###  filtrage des informations
 i= 0
 for page in list_pages:
     for item in page:
@@ -53,6 +57,7 @@ for page in list_pages:
             i =i+1
 
 df
+
 #### fonction d'envoie d'email
 
 def envoi_mail(df):
