@@ -1,0 +1,86 @@
+
+##### Fonctions pour récupérer les informations html
+
+def get_page(urlpage,element ,html_class):
+    req = urllib3.PoolManager()
+    res = req.request('GET', urlpage)
+    soup = BeautifulSoup(res.data, 'html.parser')
+    content = soup.find_all(element ,class_= html_class)
+    return content 
+
+def page_nb(i):
+    urlpage="https://www.nexity.fr/annonces-immobilieres/location/logement/tout/strasbourg+67/moins-de-1000?page={}".format(i)
+    return urlpage
+
+
+url = page_nb(2)
+page1 = get_page(url,'div','results-banner')[0]
+nb_articles = int(re.findall('<strong>(.*?)</strong>',str(page1))[0])
+#cherche me 37
+chiffre = ceil(37/12)
+chiffre
+
+list_pages=[]
+
+df = pd.DataFrame(columns=['offres', 'Lieux', 'Prix (£ ** CC/ mois)', 'lien pages'])
+site = 'https://nexity.fr'
+
+for i in range(2,chiffre+1):
+
+
+    url = page_nb(i)
+    page_n = get_page(url,'div','ais-hits--item')
+    list_pages.append(page_n)
+
+i= 0
+for page in list_pages:
+    for item in page:
+        for itemm in item.find_all('div', class_="description"):
+    
+            title = itemm.find('div', class_="title").text  # titre de l'offre
+    
+            sub_title = itemm.find('div', class_="sub-title").text   # localistaion
+    
+            info = item.find('div', class_="item")['data-id']  # lien de l'offre
+    
+            prix = itemm.find('div', class_="neuf").span.text + itemm.find('div', class_="neuf").span.span.text
+    
+            print({f"Offre{i}": title.strip(), "Lieux": sub_title.strip(), "Prix": prix.strip(), "infos": url + f"/location/{info}"})
+
+            df.loc[i] = [title.strip(), sub_title.strip(), prix[:4].strip(),
+                         site + f"//location//{info}" if float(prix[:4].strip()) < 1000 else np.nan]
+            
+            i =i+1
+
+df
+#### fonction d'envoie d'email
+
+def envoi_mail(df):
+    recipients = ['Monprojetpythonue13@gmail.com'] 
+    emaillist = [elem.strip().split(',') for elem in recipients]
+    msg = MIMEMultipart()
+    msg['Subject'] = "projet python"
+    msg['From'] = 'Monprojetpythonue13@gmail.com'
+
+    html = """\
+    <html>
+      <head></head>
+      <body>
+        {0}
+      </body>
+    </html>
+    """.format(df.to_html())
+    message = 'Nouvelles offres disponibles'
+    part1 = MIMEText(html, 'html')
+    msg.attach(part1)
+    mailserver = smtplib.SMTP('smtp.gmail.com', 587)
+    mailserver.ehlo()
+    mailserver.starttls()
+    mailserver.ehlo()
+    mailserver.login(msg['From'], 'UE13monprojet@')
+    mailserver.sendmail(msg['From'],msg['From'], msg.as_string())
+
+    pages = page_nb(url)
+    pages
+
+envoi_mail(df)
