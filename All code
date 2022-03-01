@@ -56,11 +56,11 @@ df
 #### fonction d'envoie d'email
 
 def envoi_mail(df):
-    recipients = ['Monprojetpythonue13@gmail.com'] 
+    recipients = ['xxxx@gmail.com'] 
     emaillist = [elem.strip().split(',') for elem in recipients]
     msg = MIMEMultipart()
     msg['Subject'] = "projet python"
-    msg['From'] = 'Monprojetpythonue13@gmail.com'
+    msg['From'] = 'xxxx@gmail.com'
 
     html = """\
     <html>
@@ -77,7 +77,7 @@ def envoi_mail(df):
     mailserver.ehlo()
     mailserver.starttls()
     mailserver.ehlo()
-    mailserver.login(msg['From'], 'UE13monprojet@')
+    mailserver.login(msg['From'], 'mot de passe')
     mailserver.sendmail(msg['From'],msg['From'], msg.as_string())
 
     pages = page_nb(url)
