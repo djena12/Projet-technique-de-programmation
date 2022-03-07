@@ -36,7 +36,7 @@ Ensuite, nous avons créée une boucle qui filtre toutes les informations qui r�
 Enfin, nous avons utilisé une autre fonction qui permet d'envoyer une alerte par mail dès qu'il y a une offre répondant à nos critères.
 Cette alerte sera sous forme de tableau qui en plus des critères cités ci-dessus contient également les liens des offres. En cliquant sur un lien, il nous renvoie sur l'offre sélectionnée et on peut voir toutes les informations sur ce logement.
 
-Nous nous sommes assurés d'avoir un code lisible et compréhensible pour tout le monde. Pour cela, on a mis des commentaires dans les codes pour que ça soit plus compréhensible.
+Nous nous sommes assurés d'avoir un code lisible et compréhensible.
 A noter que ce code s'applique aussi pour des projets d'offre d'emploi, d'achat de bien (ex : billets d'avion) etc. 
 De plus, vous pouvez l'appliquer pour vous-même en modifiant juste l’adresse e-mail «XXXXXX@gmail.com » et en mettant la vôtre à la place. De ce fait, vous recevrez quotidiennement un tableau avec toutes les offres de logements disponibles répondant aux critères définis.
 
