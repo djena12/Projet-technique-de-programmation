@@ -27,7 +27,7 @@ Pour que les codes fonctionnent normalement sans trop de difficulté, il faut au
 - sys
 - math
 - intertools (as it)
-- 
+
 Description des codes:
 
 Pour mener ce projet la première des choses à faire c'est bien evidemment chercher un site "webscrapable".
