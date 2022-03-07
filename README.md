@@ -28,6 +28,10 @@ Alors pour que les codes puissent fonctionnés normalement sans trop de difficul
 - sys
 - math
 - intertools (as it)
+Description des codes:
+Pour mener ce projet la première des choses à faire c'est bien evidemment chercher un site qui est webscrapable.
+Dans un premier temps , nous avons recupérer les données html du site en créant des fonctions ensuite, nous avons stocker l'ensemble des données qui repondent un data frame.
+
 
 Nous nous sommes assurés d'avoir un code lisible et compréhensible pour tout le monde. Pour cela, on a mis des commentaires dans les codes pour que ça soit plus compréhensible.
 A noter que ce code s'applique aussi pour des projets d'offre d'emploi, d'achat de bien (ex : billets d'avion) etc. 
