@@ -1,7 +1,7 @@
 # Projet-technique-de-programmation
 
 Ce projet s'inscrit dans le cadre de nôtre cours de programmation de l'UE 13 technique de programmation du master 1 Analyse et politique économique, parcours Data Science pour l'économie de l'entreprise et du futur (DS2E) & statistique économétrie (SE).
-Il a pour but de faire du webscraping sur le site web de l'agence immobilière Nexity (www.nexity.fr) afin d'avoir une alerte par mail des offres de logement disponible qui répondent aux critères ci-dessous :
+Il a pour but de faire un webscraping du site web de l'agence immobilière Nexity (www.nexity.fr) afin d'avoir une alerte par mail des offres de logement disponible qui répondent aux critères ci-dessous :
 
 - Type de bien : maison ou appartement
 - Localisation : Strasbourg
