@@ -8,8 +8,8 @@ Il a pour but de faire du webscraping sur le site web de l'agence immobilière N
 - Loyer mensuel maximum : 1000 €
 - Autres critères : meublé ou non 
 
-L'alert qui resultera de l'exécution des codes est sous forme de tableau qui en plus des critères cités ci-dessus contient une colonne qui regroupe les liens de chaque offre répondant a nos critères. En cliquant sur un liens ça nous renvoie sur l'offre selectionnée et on peut voir alors tous les informations sur ce logement.
-Alors pour que les codes puissent fonctionnés normalement sans trop de difficulté, il faut au préalable importer certains packages dans python. Nous avaons utilisé la version 3.9 de python ensuite installé les packages qui suivent :
+L'alerte qui résultera de l'exécution des codes est sous forme de tableau qui en plus des critères cités ci-dessus contient une colonne qui regroupe les liens de chaque offre répondant à nos critères. En cliquant sur un lien ça nous renvoie sur l'offre sélectionnée et on peut voir alors toutes les informations sur ce logement.
+Alors pour que les codes puissent fonctionnés normalement sans trop de difficulté, il faut au préalable importer certains packages dans python. Nous avons utilisé la version 3.9 de python ensuite installé les packages qui suivent :
 
 - Beautyfulsup (from bs4)
 - numpy (as np)
